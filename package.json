@@ -1,0 +1,16 @@
+{
+  "name": "langchain-quickstart",
+  "version": "1.0.0",
+  "description": "Examples of LangChain.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Deepak Guptha Sitharaman",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/core": "^0.3.31",
+    "langchain": "^0.3.11"
+  }
+}
