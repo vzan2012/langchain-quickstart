@@ -9,8 +9,16 @@
   "keywords": [],
   "author": "Deepak Guptha Sitharaman",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@langchain/core": "^0.3.31",
+    "@langchain/google-genai": "^0.1.6",
     "langchain": "^0.3.11"
+  },
+  "overrides": {
+    "@langchain/core": "^0.3.31"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7"
   }
 }

@@ -11,18 +11,35 @@ importers:
       '@langchain/core':
         specifier: ^0.3.31
         version: 0.3.31(openai@4.79.1(zod@3.24.1))
+      '@langchain/google-genai':
+        specifier: ^0.1.6
+        version: 0.1.6(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(zod@3.24.1)
       langchain:
         specifier: ^0.3.11
-        version: 0.3.11(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(openai@4.79.1(zod@3.24.1))
+        version: 0.3.11(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(@langchain/google-genai@0.1.6(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(zod@3.24.1))(openai@4.79.1(zod@3.24.1))
+    devDependencies:
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
 
 packages:
 
   '@cfworker/json-schema@4.1.0':
     resolution: {integrity: sha512-/vYKi/qMxwNsuIJ9WGWwM2rflY40ZenK3Kh4uR5vB9/Nz12Y7IUN/Xf4wDA7vzPfw0VNh3b/jz4+MjcVgARKJg==}
 
+  '@google/generative-ai@0.21.0':
+    resolution: {integrity: sha512-7XhUbtnlkSEZK15kN3t+tzIMxsbKm/dSkKBFalj+20NvPKe1kBY7mR2P7vuijEn+f06z5+A8bVGKO0v39cr6Wg==}
+    engines: {node: '>=18.0.0'}
+
   '@langchain/core@0.3.31':
     resolution: {integrity: sha512-Fjy8gdaFjGuAW7+ug1XfQYJR3fyWPpWyydPXOhXfjnThaMnHfhIg9kzA3W7DxiMLgAC2fQsAqyxGJVXajV/07A==}
     engines: {node: '>=18'}
+
+  '@langchain/google-genai@0.1.6':
+    resolution: {integrity: sha512-LF3fan9pvgFa1vw2/IYGhi5KjppE0OvPFX3QQBUshBLpXWERP+BSpSD7jcXyqm9Kf7DcFj7w5/2knKeEwih8Xg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@langchain/core': '>=0.3.17 <0.4.0'
 
   '@langchain/openai@0.3.17':
     resolution: {integrity: sha512-uw4po32OKptVjq+CYHrumgbfh4NuD7LqyE+ZgqY9I/LrLc6bHLMc+sisHmI17vgek0K/yqtarI0alPJbzrwyag==}
@@ -88,6 +105,10 @@ packages:
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+    engines: {node: '>=12'}
 
   event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
@@ -286,6 +307,8 @@ snapshots:
 
   '@cfworker/json-schema@4.1.0': {}
 
+  '@google/generative-ai@0.21.0': {}
+
   '@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1))':
     dependencies:
       '@cfworker/json-schema': 4.1.0
@@ -302,6 +325,14 @@ snapshots:
       zod-to-json-schema: 3.24.1(zod@3.24.1)
     transitivePeerDependencies:
       - openai
+
+  '@langchain/google-genai@0.1.6(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(zod@3.24.1)':
+    dependencies:
+      '@google/generative-ai': 0.21.0
+      '@langchain/core': 0.3.31(openai@4.79.1(zod@3.24.1))
+      zod-to-json-schema: 3.24.1(zod@3.24.1)
+    transitivePeerDependencies:
+      - zod
 
   '@langchain/openai@0.3.17(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))':
     dependencies:
@@ -360,6 +391,8 @@ snapshots:
 
   delayed-stream@1.0.0: {}
 
+  dotenv@16.4.7: {}
+
   event-target-shim@5.0.1: {}
 
   eventemitter3@4.0.7: {}
@@ -391,7 +424,7 @@ snapshots:
 
   jsonpointer@5.0.1: {}
 
-  langchain@0.3.11(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(openai@4.79.1(zod@3.24.1)):
+  langchain@0.3.11(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(@langchain/google-genai@0.1.6(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(zod@3.24.1))(openai@4.79.1(zod@3.24.1)):
     dependencies:
       '@langchain/core': 0.3.31(openai@4.79.1(zod@3.24.1))
       '@langchain/openai': 0.3.17(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))
@@ -406,6 +439,8 @@ snapshots:
       yaml: 2.7.0
       zod: 3.24.1
       zod-to-json-schema: 3.24.1(zod@3.24.1)
+    optionalDependencies:
+      '@langchain/google-genai': 0.1.6(@langchain/core@0.3.31(openai@4.79.1(zod@3.24.1)))(zod@3.24.1)
     transitivePeerDependencies:
       - encoding
       - openai
